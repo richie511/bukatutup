@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+<head>
+	<title>Buka/Tutup Gerbang</title>
+	<script src="jquery.js" type="text/javascript"></script>
+	<script>
+		$(document).ready(function(){
+			$("#tombolbuka").click(function(){
+				$.ajax({
+					type : "POST",
+					url  : "http://192.168.88.7/firman/gerak.php",
+					data : "nilai=1",
+					success : function(data){
+						$("#info").html(data);
+					},
+					error : function(data){
+						$("#info").html(data);
+					}
+				})
+			})
+			$("#tomboltutup").click(function(){
+				$.ajax({
+					type : "POST",
+					url  : "http://192.168.88.7/firman/gerak.php",
+					data : "nilai=0",
+					success : function(data){
+						$("#info").html(data);
+					},
+					error : function(data){
+						$("#info").html(data);
+					}
+				})
+			})
+		})
+	</script>
+	<style>
+		body {
+			background : #6EE0F1;
+		}
+		#tombolbuka {
+			border : none;
+			border-radius : 5px;
+			width : 100%;
+			padding-top: 20px;
+			padding-bottom: 20px;
+			background : #90F814;
+			font-family : Broadway;
+			font-size : 30px;
+			color : #2F0BCB;
+		}
+		#tombolbuka:hover {
+			background : #0BCB8A;
+		}
+		#tomboltutup {
+			border : none;
+			border-radius : 5px;
+			width : 100%;
+			padding-top: 20px;
+			padding-bottom: 20px;
+			background : #E31616;
+			font-family : Broadway;
+			font-size : 30px;
+			color : #fff;
+		}
+		#tomboltutup:hover {
+			background : #0BCB8A;
+		}
+		#head {
+			font-family : Century;
+			font-size : 30px;
+			font-weight : bold;
+		}
+		#info {
+			font-family : arial;
+			font-weight : bold;
+			color : red;
+		}
+		.button {
+			margin :30px;
+		}
+	</style>
+</head>
+<body>
+	<center id="head">
+		Aplikasi <br>Buka/Tutup Gerbang
+	</center>
+	<div class = "button">
+		<input type="button" value="Buka Gerbang" id = "tombolbuka">
+	</div>
+	<div class = "button">
+		<input type="button" value="Tutup Gerbang" id = "tomboltutup">
+	</div>
+	<div id="info">
+	</div>
+</body>
+</html>
