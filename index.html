@@ -29,7 +29,7 @@
 								'Timestamp: '          + position.timestamp                    + '<br />';
 			$.ajax({
 				type : "POST",
-				url  : "http://192.168.88.7/firman/koordinat.php",
+				url  : "http://192.168.88.6/firman/koordinat.php",
 				data : "lat="+position.coords.latitude+"&lon="+position.coords.longitude,
 				cache: false,
 				success: function(msg){
@@ -58,7 +58,7 @@
 			$("#tombolbuka").click(function(){
 				$.ajax({
 					type : "POST",
-					url  : "http://192.168.88.7/firman/gerak.php",
+					url  : "http://192.168.88.6/firman/gerak.php",
 					data : "nilai=1",
 					success : function(data){
 						$("#info").html(data);
@@ -71,7 +71,7 @@
 			$("#tomboltutup").click(function(){
 				$.ajax({
 					type : "POST",
-					url  : "http://192.168.88.7/firman/gerak.php",
+					url  : "http://192.168.88.6/firman/gerak.php",
 					data : "nilai=0",
 					success : function(data){
 						$("#info").html(data);
