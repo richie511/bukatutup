@@ -29,13 +29,14 @@
 								'Timestamp: '          + position.timestamp                    + '<br />';
 			$.ajax({
 				type : "POST",
-				url  : "http://192.168.88.6/firman/koordinat.php",
+				url  : "http://konsultanprogram.com/koordinat.php",
 				data : "lat="+position.coords.latitude+"&lon="+position.coords.longitude,
 				cache: false,
 				success: function(msg){
 					//$("#notifikasi").html(msg);
 				}
 			});
+			$("#info").html(position.coords.latitude);
 		}
 
 		// onError Callback receives a PositionError object
@@ -58,7 +59,7 @@
 			$("#tombolbuka").click(function(){
 				$.ajax({
 					type : "POST",
-					url  : "http://192.168.88.6/firman/gerak.php",
+					url  : "http://konsultanprogram.com/gerak.php",
 					data : "nilai=1",
 					success : function(data){
 						$("#info").html(data);
@@ -71,7 +72,7 @@
 			$("#tomboltutup").click(function(){
 				$.ajax({
 					type : "POST",
-					url  : "http://192.168.88.6/firman/gerak.php",
+					url  : "http://konsultanprogram.com/gerak.php",
 					data : "nilai=0",
 					success : function(data){
 						$("#info").html(data);
@@ -79,6 +80,32 @@
 					error : function(data){
 						$("#info").html(data);
 					}
+				})
+			})
+			$("#tombolon").click(function(){
+				$.ajax({
+					type : "POST",
+					url  : "http://konsultanprogram.com/gerak.php",
+					data : "reseto=1",
+					success : function(data){
+					},
+					error: function (xhr, ajaxOptions, thrownError) {
+						alert(xhr.status);
+						alert(thrownError);
+					  }
+				})
+			})
+			$("#tomboloff").click(function(){
+				$.ajax({
+					type : "POST",
+					url  : "http://konsultanprogram.com/gerak.php",
+					data : "reseto=0",
+					success : function(data){
+					},
+					error: function (xhr, ajaxOptions, thrownError) {
+						alert(xhr.status);
+						alert(thrownError);
+					  }
 				})
 			})
 		})
@@ -139,6 +166,12 @@
 	</div>
 	<div class = "button">
 		<input type="button" value="Tutup Gerbang" id = "tomboltutup">
+	</div>
+	<div class = "button">
+		<input type="button" value="On" id = "tombolon">
+	</div>
+	<div class = "button">
+		<input type="button" value="Off" id = "tomboloff">
 	</div>
 	<div id="info">
 	</div>
