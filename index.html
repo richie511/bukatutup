@@ -36,7 +36,6 @@
 					//$("#notifikasi").html(msg);
 				}
 			});
-			$("#info").html(position.coords.latitude);
 		}
 
 		// onError Callback receives a PositionError object
@@ -141,6 +140,19 @@
 		}
 		#tomboltutup:hover {
 			background : #0BCB8A;
+		}
+		#tombolon, #tomboloff {
+			border : none;
+			border-radius : 5px;
+			width : 100%;
+			padding-top: 20px;
+			padding-bottom: 20px;
+			background : #fff;
+			font-family : Broadway;
+			font-size : 30px;
+		}
+		#tombolon, #tomboloff:hover {
+			background : #lime;
 		}
 		#head {
 			font-family : Century;
